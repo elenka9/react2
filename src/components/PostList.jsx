@@ -1,9 +1,12 @@
-export function PostList(props) {
+export function PostList({ data }) {
   return (
-    <div>
-      <h3>{props.title}</h3>
-      <p>{props.body}</p> <br></br>
-    </div>
- 
+    <ul>
+      {data.map((item) => (
+        <li key={item.id}>
+          <h3>{item.title}</h3>
+          <p>{item.body} </p>
+        </li>
+      ))}
+    </ul>
   );
 }

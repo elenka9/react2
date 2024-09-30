@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { PostList } from "./components/PostList";
-
-
 import LanguageSwitcher from "./components/Language Switcher";
 import { LanguageProvider } from "./components/LanguageContest";
 
@@ -15,39 +13,25 @@ function App() {
       .then((data) => setData(data));
   };
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
   const handleCklick = () => {
     fetchPosts();
   };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
 
   return (
     <>
       <h1>Загрузка данных</h1>
       <button onClick={handleCklick}>Reload posts</button>
-      {/*  я не поняла как работает эта строчка, увидела ее в комментах к дз */}
-      {/* {!!data.length && <PostList data={data}/>}  */}
-      <br></br>
+
+      {!!data.length && <PostList data={data} />}
 
       <div>
-        {data.map((item) => {
-          return (
-            <PostList key={item.id}
-              title={item.title}
-              body={item.body}
-            />
-          );
-        })}
-      </div>
-
-      <div>
-         <h1>Переключение языков</h1>
+        <h1>Переключение языков</h1>
         <LanguageProvider>
-          
-            <LanguageSwitcher />
-          
+          <LanguageSwitcher />
         </LanguageProvider>
       </div>
     </>

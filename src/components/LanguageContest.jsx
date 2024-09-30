@@ -4,7 +4,7 @@ export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   // children это вложенные компоненты, которые будут иметь доступ к контексту
-  const [language, setLanguage] = useState('ru');
+  const [language, setLanguage] = useState("ru");
   // хук для создания состояния language с начальным значением ru
   const switchLanguage = (lang) => {
     setLanguage(lang);
